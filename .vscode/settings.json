@@ -1,0 +1,3 @@
+{
+  "typescript.experimental.tsserver.web.typeAcquisition.enabled": true
+}
