@@ -1,15 +1,17 @@
-import { Text } from "react-native";
-
 import { Container } from './styles';
 
-import { LogoHeader } from '../../components/LogoHeader'
-import { StatsHeader } from '../../components/StatsHeader'
+import { LogoHeader } from '../../components/LogoHeader';
+import { StatsHeader } from '../../components/StatsHeader';
+import { Button } from '../../components/Button';
+import { SectionList } from '../../components/SectionList';
 
 export function Home() {
   return (
     <Container>
       <LogoHeader />
       <StatsHeader />
+      <Button />
+      <SectionList />
       {/* <Text>Home</Text>
       <Text style={{ fontFamily: 'NunitoSans_400Regular' }}>Home</Text>
       <Text style={{ fontFamily: 'NunitoSans_700Bold' }}>Home</Text>
