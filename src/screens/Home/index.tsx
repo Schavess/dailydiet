@@ -5,20 +5,30 @@ import { StatsHeader } from '../../components/StatsHeader';
 import { Button } from '../../components/Button';
 import { SectionList } from '../../components/SectionList';
 
+type Item = {
+  id: string;
+  name: string;
+  hour: string;
+  inDiet: boolean;
+}
+type Section = {
+  title: string;
+  data: Item[];
+}
+
 export function Home() {
+
+  const sections: Section[] = [
+    { title: '04.05.2024', data: [{ id: '1', hour: '08:00', name: 'X-Tudo', inDiet: false }, { id: '2', hour: '12:00', name: 'Lasanha', inDiet: false }] },
+    { title: '03.05.2024', data: [{ id: '1', hour: '08:00', name: 'X-Tudo', inDiet: false }, { id: '2', hour: '12:00', name: 'Lasanha', inDiet: false }, { id: '3', hour: '18:00', name: 'Salada', inDiet: true }] },
+  ];
+
   return (
     <Container>
       <LogoHeader />
       <StatsHeader />
       <Button />
-      <SectionList />
-      {/* <Text>Home</Text>
-      <Text style={{ fontFamily: 'NunitoSans_400Regular' }}>Home</Text>
-      <Text style={{ fontFamily: 'NunitoSans_700Bold' }}>Home</Text>
-      <Text>Nunito-SAns?</Text>
-      <Text style={{ fontFamily: 'NunitoSans_400Regular' }}>Nunito-SAns?</Text>
-      <Text style={{ fontFamily: 'NunitoSans_700Bold' }}>Nunito-SAns?</Text>
-      <Text style={{ fontFamily: 'NunitoSans_700Bold' }}>Funcionando??????</Text> */}
+      <SectionList sections={sections} />
     </Container>
   );
 }
