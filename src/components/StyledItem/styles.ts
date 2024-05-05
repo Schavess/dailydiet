@@ -26,6 +26,14 @@ export const HourText = styled.Text`
   `};
   padding-right: 5px;
 `;
+export const HourDivisor = styled.Text`
+  ${({ theme }) => css`
+      font-size: ${theme.FONT_SIZE.LG}px;
+      font-family: ${theme.FONT_FAMILY.REGULAR};
+      color: ${theme.COLORS.GRAY_4};
+  `};
+  padding: 5px;
+`;
 
 export const Text = styled.Text`
   ${({ theme }) => css`

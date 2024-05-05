@@ -1,6 +1,6 @@
 import { ThemeProvider } from 'styled-components/native';
 
-import { Home } from "./src/screens/Home";
+import { Routes } from "./src/routes";
 
 import theme from './src/theme';
 
@@ -14,7 +14,7 @@ export default function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      {fontsLoaded ? <Home /> : <Text>Carregando...</Text>}
+      {fontsLoaded ? <Routes /> : <Text>Carregando...</Text>}
     </ThemeProvider>
   );
 }

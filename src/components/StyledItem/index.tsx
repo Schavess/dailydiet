@@ -1,4 +1,4 @@
-import { Container, Content, HourText, StatusTrue, StatusFalse, Text } from './styles';
+import { Container, Content, HourText, HourDivisor, StatusTrue, StatusFalse, Text } from './styles';
 
 type StyledItemProps = {
   hour: string;
@@ -11,7 +11,7 @@ export function StyledItem({ hour, name, inDiet }: StyledItemProps) {
     <Container>
       <Content>
         <HourText>{hour}</HourText>
-        <HourText>|</HourText>
+        <HourDivisor>|</HourDivisor>
         <Text>{name}</Text>
         {inDiet ? <StatusTrue /> : <StatusFalse />}
       </Content>
