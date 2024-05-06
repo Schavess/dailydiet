@@ -1,10 +1,12 @@
 import { Container, Text, Content, ButtonText, PlusIcon } from './styles';
+import { TouchableOpacityProps } from "react-native";
 
-export function Button() {
+
+export function ButtonCreator({ onPress, ...rest }: TouchableOpacityProps) {
   return (
-    <Container>
+    <Container  >
       <Text>Refeições</Text>
-      <Content>
+      <Content onPress={onPress} {...rest}>
         <PlusIcon />
         <ButtonText>Nova refeição</ButtonText>
       </Content>

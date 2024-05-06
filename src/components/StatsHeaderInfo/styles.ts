@@ -69,5 +69,6 @@ export const ForwardIcon = styled(ArrowLeft).attrs<ContentProps>(({ theme, isOnD
   color: isOnDiet ?  theme.COLORS.GREEN_DARK: theme.COLORS.RED_DARK,    
 }))`
   margin-right: auto;
+  margin-left: 20px;
 `;
 

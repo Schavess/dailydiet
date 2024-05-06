@@ -1,5 +1,7 @@
+import { TouchableOpacity } from 'react-native';
 import styled, { css } from 'styled-components/native'
 import { Plus } from "phosphor-react-native";
+
 
 export const Container = styled.View`
   display: flex;
@@ -7,7 +9,7 @@ export const Container = styled.View`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  `;
+`;
 
 export const Text = styled.Text`
   ${({ theme }) => css`
@@ -19,7 +21,7 @@ export const Text = styled.Text`
   padding-bottom: 10px ;
 `;
 
-export const Content = styled.TouchableOpacity`
+export const Content = styled(TouchableOpacity)`
   display: flex;
   width: 85%;
   height: 60px;
