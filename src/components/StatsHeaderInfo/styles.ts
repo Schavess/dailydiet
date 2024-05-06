@@ -26,17 +26,6 @@ export const Container = styled(TouchableOpacity).attrs<ContainerProps>((props) 
   background-color: ${({ theme, isOnDiet }) => isOnDiet ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
 `;
 
-// export const Container = styled.TouchableOpacity<ContentProps & ViewProps>`
-//   display: flex;
-//   height: 150px;
-//   flex-direction: row;
-//   align-items: center;
-//   justify-content: center;
-//   padding: 0;
-//   margin: 0;
-//   background-color: ${({ theme, isOnDiet }) => isOnDiet ? theme.COLORS.GREEN_LIGHT : theme.COLORS.RED_LIGHT};
-//   `;
-
 export const Content = styled.View<ContentProps>`
   display: flex;
   flex: 1;
