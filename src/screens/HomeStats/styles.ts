@@ -6,7 +6,9 @@ export const Container = styled(SafeAreaView)`
   display: flex;
   flex: 1;
   background-color: ${({ theme }) => theme.COLORS.GRAY_6};
-`;
+  `;
 
-export const Content = styled.View``;
+export const Content = styled.View`
+
+`;
 export const Text = styled.Text``;

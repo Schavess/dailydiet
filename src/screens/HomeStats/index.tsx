@@ -1,6 +1,6 @@
 import { Container, Content, Text } from './styles';
 
-import { StatsHeader } from '../../components/StatsHeader';
+import { StatsHeaderInfo } from '../../components/StatsHeaderInfo';
 
 import { useNavigation } from '@react-navigation/native'
 
@@ -13,11 +13,13 @@ export function Homestats() {
   }
 
   return (
-    <Container>
-      <Content>
-        <Text>Estatísticas</Text>
-        <StatsHeader statistic={'40,86%'} onPress={handleBackNavigation} />
-      </Content>
-    </Container>
+    <>
+      <Container>
+        <Content>
+          <StatsHeaderInfo statistic={'40,86%'} onPress={handleBackNavigation} />
+          <Text>Estatísticas Gerais</Text>
+        </Content>
+      </Container>
+    </>
   )
 }
