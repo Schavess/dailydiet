@@ -8,21 +8,17 @@ import { Button } from '../../components/Button';
 import { ToggleYesNoButton } from '../../components/ToogleYesNo';
 import { DatePicker } from '../../components/DateTimePicker';
 
-import { View } from 'react-native';
-
 import { useNavigation } from '@react-navigation/native'
 
 export function MealCreatorPage() {
 
+  const navigation = useNavigation();
+
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-
-  const [data, setData] = useState('');
-  const [time, setTime] = useState('');
-
-  const [selection, setSelection] = useState<'SIM' | 'NÃO' | null>(null);
-
-  const navigation = useNavigation();
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedTime, setSelectedTime] = useState(new Date());
+  const [selection, setSelection] = useState<'SIM' | 'NÃO'>('SIM');
 
   function handleBackNavigation() {
     navigation.navigate('home');
@@ -32,16 +28,14 @@ export function MealCreatorPage() {
     console.log(name);
     console.log(description);
     console.log(selection);
-    console.log(time);
-    console.log(data);
+    console.log(selectedTime);
+    console.log(selectedDate);
   }
 
   const handleSelection = (selection: 'SIM' | 'NÃO') => {
     setSelection(selection);
   };
 
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedTime, setSelectedTime] = useState(new Date());
 
   const handleDateChange = (newDate: Date) => {
     setSelectedDate(newDate);
@@ -69,8 +63,6 @@ export function MealCreatorPage() {
               onChangeText={setDescription}
               height={'120px'}
             />
-            <View>
-            </View>
             <FormDivideView>
               <HalfWidthContainer>
                 <Text>Data</Text>
@@ -82,6 +74,9 @@ export function MealCreatorPage() {
               </HalfWidthContainer>
             </FormDivideView>
 
+            <FormView>
+              <Text>Está dentro da dieta?</Text>
+            </FormView>
             <ToggleYesNoButton onSelectionChange={handleSelection} />
 
             <Button title={'Cadastrar refeição'} onPress={handleSubmit} />

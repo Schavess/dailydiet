@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
+import { StatusTrue, StatusFalse } from './styles';
+import { Columns } from 'phosphor-react-native';
+
 interface ToggleButtonProps {
   onSelectionChange: (selection: 'SIM' | 'NÃO') => void;
 }
@@ -19,13 +22,15 @@ export function ToggleYesNoButton({ onSelectionChange }: ToggleButtonProps) {
         style={[styles.button, selectedOption === 'SIM' ? styles.selectedSim : styles.unselected]}
         onPress={() => handleSelection('SIM')}
       >
-        <Text>SIM</Text>
+        <StatusTrue />
+        <Text>Sim</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.button, selectedOption === 'NÃO' ? styles.selectedNao : styles.unselected]}
         onPress={() => handleSelection('NÃO')}
       >
-        <Text>NÃO</Text>
+        <StatusFalse />
+        <Text>Não</Text>
       </TouchableOpacity>
     </View>
   );
@@ -39,11 +44,12 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   button: {
-    padding: 10,
-    marginHorizontal: 5,
+    flexDirection: 'row',
+    borderRadius: 5,
     alignItems: 'center',
-    justifyContent: 'space-between',
-    width: 100,
+    justifyContent: 'space-evenly',
+    width: '49%',
+    height: 56,
   },
   selectedSim: {
     backgroundColor: 'lightgreen',
