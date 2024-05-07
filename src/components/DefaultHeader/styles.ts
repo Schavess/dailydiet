@@ -4,7 +4,7 @@ import { ArrowLeft } from "phosphor-react-native";
 export const Container = styled.TouchableOpacity`
   display: flex;
   width: 100%;
-  height: 150px;
+  height: 120px;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -13,7 +13,7 @@ export const Container = styled.TouchableOpacity`
 
 export const Content = styled.View`
   display: flex;
-  width: 85%;
+  width: 90%;
   align-items: center;
   justify-content: center;
   flex-direction: row;

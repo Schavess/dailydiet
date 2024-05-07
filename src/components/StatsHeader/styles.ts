@@ -16,7 +16,7 @@ export const Container = styled.TouchableOpacity`
 
 export const Content = styled.View<ContentProps>`
   display: flex;
-  width: 85%;
+  width: 90%;
   height: 120px;
   align-items: center;
   justify-content: center;

@@ -16,7 +16,7 @@ export const Container = styled(SafeAreaView)`
 export const Content = styled.View`
   align-items: center;
   justify-content: center;
-  width: 85%;
+  width: 90%;
   `;
 
 export const Text = styled.Text`

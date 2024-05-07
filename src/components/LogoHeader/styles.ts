@@ -9,7 +9,7 @@ export const Container = styled.View`
 `;
 export const Content = styled.View`
   display: flex;
-  width: 85%;
+  width: 90%;
   justify-content: space-between;
   flex-direction: row;
 `;

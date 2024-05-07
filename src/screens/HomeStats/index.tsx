@@ -2,11 +2,15 @@ import { Container, Content, Text, StatsCard, Number, CardText, DoubleStatsView,
 
 import { StatsHeaderInfo } from '../../components/StatsHeaderInfo';
 
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
 
 import { StatusBar } from 'react-native';
 
+import { useTheme } from "styled-components/native";
+
 export function Homestats() {
+
+  const { COLORS } = useTheme();
 
   const navigation = useNavigation();
 
@@ -18,7 +22,7 @@ export function Homestats() {
     <>
       <StatusBar
         barStyle="dark-content"
-        backgroundColor="#F4E6E7"
+        backgroundColor={COLORS.GREEN_LIGHT}
       />
       <Container>
         <StatsHeaderInfo statistic={'40,86%'} onPress={handleBackNavigation} />
@@ -33,11 +37,11 @@ export function Homestats() {
             <CardText>refeições registradas</CardText>
           </StatsCard>
           <DoubleStatsView>
-            <DoubleStatsCard backgroundColor={'#E5F0DB'}>
+            <DoubleStatsCard backgroundColor={COLORS.GREEN_LIGHT}>
               <Number>32</Number>
               <CardText>refeições dentro da dieta</CardText>
             </DoubleStatsCard>
-            <DoubleStatsCard backgroundColor={'#F4E6E7'}>
+            <DoubleStatsCard backgroundColor={COLORS.RED_LIGHT}>
               <Number>77</Number>
               <CardText>refeições fora da dieta</CardText>
             </DoubleStatsCard>

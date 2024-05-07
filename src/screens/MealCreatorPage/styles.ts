@@ -15,14 +15,24 @@ export const Content = styled.View`
   flex-direction: column;
   border-radius: 20px;
   ${({ theme }) => css`
-  background-color: ${theme.COLORS.WHITE};
+    background-color: ${theme.COLORS.WHITE};
   `};
   justify-content: flex-start;
-  align-items: center
+  align-items: center;
 `;
 
 export const FormView = styled.View`
-  width: 85%;
+  padding-top: 40px;
+  width: 90%;
+`;
+
+export const FormDivideView = styled.View`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const HalfWidthContainer = styled.View`
+  width: 50%;
 `;
 
 export const Text = styled.Text`

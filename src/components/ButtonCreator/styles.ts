@@ -17,7 +17,7 @@ export const Text = styled.Text`
   font-family: ${theme.FONT_FAMILY.REGULAR};
   /* color: ${theme.COLORS.GRAY_1}; */
   `};
-  width: 85%;
+  width: 90%;
   padding-bottom: 10px ;
 `;
 
