@@ -32,15 +32,16 @@ export const FormDivideView = styled.View`
   `;
 
 export const HalfWidthContainer = styled.View`
-  align-items: center;
+  align-items: left;
   justify-content: space-between;
   width: 50%;
   `;
 
 export const Text = styled.Text`
   ${({ theme }) => css`
-  font-size: ${theme.FONT_SIZE.MD}px;
+  font-size: ${theme.FONT_SIZE.SM}px;
   font-family: ${theme.FONT_FAMILY.BOLD};
   `};
   text-align: left;
+  padding-left: 5px;
 `;

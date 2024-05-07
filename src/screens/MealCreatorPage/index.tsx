@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { Container, Content, FormView, FormDivideView, HalfWidthContainer } from './styles';
+import { Container, Content, FormView, FormDivideView, HalfWidthContainer, Text } from './styles';
 
 import { DefaultHeader } from '../../components/DefaultHeader';
 import { Input } from '../../components/Input';
@@ -8,7 +8,7 @@ import { Button } from '../../components/Button';
 import { ToggleYesNoButton } from '../../components/ToogleYesNo';
 import { DatePicker } from '../../components/DateTimePicker';
 
-import { View, Text } from 'react-native';
+import { View } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native'
 
@@ -38,7 +38,6 @@ export function MealCreatorPage() {
 
   const handleSelection = (selection: 'SIM' | 'NÃO') => {
     setSelection(selection);
-    console.log('Opção selecionada:', selection);
   };
 
   const [selectedDate, setSelectedDate] = useState(new Date());

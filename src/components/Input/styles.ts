@@ -35,4 +35,8 @@ export const Content = styled(TextInput)<TextInputProps>`
 
 export const Text = styled.Text`
   padding: 4px;
+  ${({ theme }) => css`
+  font-size: ${theme.FONT_SIZE.SM}px;
+  font-family: ${theme.FONT_FAMILY.BOLD};
+  `};
 `;

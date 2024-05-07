@@ -1,4 +1,4 @@
-import styled from 'styled-components/native';
+import styled, { css } from 'styled-components/native';
 import { TouchableOpacity, Text } from 'react-native';
 
 export const Container = styled.View`
@@ -11,15 +11,17 @@ export const DateTimeButton = styled(TouchableOpacity)`
   width: 95%;
   height: 56px;
   justify-content: center;
-  /* background-color: #4a90e2; */
   border: 1px solid #bbb;
   border-radius: 5px;
-  /* padding: 10px 20px; */
   margin: 5px;
 `;
 
 export const ButtonText = styled(Text)`
   color: black;
-  font-size: 12px;
-  text-align: center;
+  ${({ theme }) => css`
+  font-size: ${theme.FONT_SIZE.SM}px;
+  font-family: ${theme.FONT_FAMILY.REGULAR};
+  `};
+  text-align: left;
+  padding-left: 5px;
 `;

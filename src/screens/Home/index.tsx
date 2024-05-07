@@ -29,7 +29,6 @@ export function Home() {
   }
 
   function handleMealCreatorNavigation() {
-    console.log('navegar');
     navigation.navigate('mealcreator');
   }
 
