@@ -6,6 +6,9 @@ import { DefaultHeader } from '../../components/DefaultHeader';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
 import { ToggleYesNoButton } from '../../components/ToogleYesNo';
+import { DatePicker } from '../../components/DateTimePicker';
+
+import { View, Text } from 'react-native';
 
 import { useNavigation } from '@react-navigation/native'
 
@@ -13,6 +16,7 @@ export function MealCreatorPage() {
 
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
+
   const [data, setData] = useState('');
   const [time, setTime] = useState('');
 
@@ -37,6 +41,17 @@ export function MealCreatorPage() {
     console.log('Opção selecionada:', selection);
   };
 
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [selectedTime, setSelectedTime] = useState(new Date());
+
+  const handleDateChange = (newDate: Date) => {
+    setSelectedDate(newDate);
+  };
+
+  const handleTimeChange = (newTime: Date) => {
+    setSelectedTime(newTime);
+  };
+
   return (
     <>
       <DefaultHeader onPress={handleBackNavigation} />
@@ -55,25 +70,18 @@ export function MealCreatorPage() {
               onChangeText={setDescription}
               height={'120px'}
             />
+            <View>
+            </View>
             <FormDivideView>
               <HalfWidthContainer>
-                <Input
-                  title='Data'
-                  placeholder="Data"
-                  onChangeText={setData}
-                  keyboardType='numeric'
-                />
+                <Text>Data</Text>
+                <DatePicker value={selectedDate} mode="date" onDateChange={handleDateChange} />
               </HalfWidthContainer>
               <HalfWidthContainer>
-                <Input
-                  title='Hora'
-                  placeholder="Hora"
-                  onChangeText={setTime}
-                  keyboardType='numeric'
-                />
+                <Text>Hora</Text>
+                <DatePicker value={selectedTime} mode="time" onDateChange={handleTimeChange} />
               </HalfWidthContainer>
             </FormDivideView>
-
 
             <ToggleYesNoButton onSelectionChange={handleSelection} />
 

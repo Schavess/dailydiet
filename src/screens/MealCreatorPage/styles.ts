@@ -24,16 +24,18 @@ export const Content = styled.View`
 export const FormView = styled.View`
   padding-top: 40px;
   width: 90%;
-`;
+  `;
 
 export const FormDivideView = styled.View`
   display: flex;
   flex-direction: row;
-`;
+  `;
 
 export const HalfWidthContainer = styled.View`
+  align-items: center;
+  justify-content: space-between;
   width: 50%;
-`;
+  `;
 
 export const Text = styled.Text`
   ${({ theme }) => css`
