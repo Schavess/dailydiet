@@ -7,8 +7,6 @@ import { SectionList } from '../../components/SectionList';
 
 import { useNavigation } from '@react-navigation/native';
 
-import { TouchableOpacity, Text } from 'react-native';
-
 type Item = {
   id: string;
   name: string;

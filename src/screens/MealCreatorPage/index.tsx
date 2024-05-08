@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { View } from 'react-native';
+import { Alert } from 'react-native';
 
 import { Container, Content, FormView, FormDivideView, HalfWidthContainer, Text } from './styles';
 
@@ -10,7 +10,7 @@ import { Button } from '../../components/Button';
 import { ToggleYesNoButton } from '../../components/ToogleYesNo';
 import { DatePicker } from '../../components/DateTimePicker';
 
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native';
 
 export function MealCreatorPage() {
 
@@ -27,11 +27,17 @@ export function MealCreatorPage() {
   }
 
   function handleSubmit() {
-    console.log(name);
-    console.log(description);
-    console.log(selection);
-    console.log(selectedTime);
-    console.log(selectedDate);
+    if (name !== '') {
+      console.log(name);
+      console.log(description);
+      console.log(selection);
+      console.log(selectedTime);
+      console.log(selectedDate);
+
+      navigation.navigate('feedback', { selection });
+    } else {
+      Alert.alert('Qual a refeição?');
+    }
   }
 
   const handleSelection = (selection: 'SIM' | 'NÃO') => {
