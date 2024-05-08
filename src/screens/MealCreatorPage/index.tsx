@@ -1,5 +1,7 @@
 import { useState } from 'react';
 
+import { View } from 'react-native';
+
 import { Container, Content, FormView, FormDivideView, HalfWidthContainer, Text } from './styles';
 
 import { DefaultHeader } from '../../components/DefaultHeader';
@@ -61,7 +63,7 @@ export function MealCreatorPage() {
               title='Descrição'
               placeholder="Descreva o alimento"
               onChangeText={setDescription}
-              height={'120px'}
+              height={'150px'}
             />
             <FormDivideView>
               <HalfWidthContainer>
@@ -74,11 +76,8 @@ export function MealCreatorPage() {
               </HalfWidthContainer>
             </FormDivideView>
 
-            <FormView>
-              <Text>Está dentro da dieta?</Text>
-            </FormView>
+            <Text>Está dentro da dieta?</Text>
             <ToggleYesNoButton onSelectionChange={handleSelection} />
-
             <Button title={'Cadastrar refeição'} onPress={handleSubmit} />
           </FormView>
 

@@ -10,21 +10,21 @@ export const Container = styled.View`
   `;
 
 export const Content = styled.View`
+  flex: 1;
   display: flex;
-  height: 100%;
   flex-direction: column;
   border-radius: 20px;
   ${({ theme }) => css`
     background-color: ${theme.COLORS.WHITE};
   `};
-  justify-content: flex-start;
   align-items: center;
-`;
+  `;
 
 export const FormView = styled.View`
-  padding-top: 40px;
   width: 90%;
-  `;
+  height: 80%;
+  justify-content: space-between;
+`;
 
 export const FormDivideView = styled.View`
   display: flex;

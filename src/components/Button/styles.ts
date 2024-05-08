@@ -18,7 +18,7 @@ export const Container = styled(TouchableOpacity)<Props>`
   margin-top: 10px;
 `;
 
-export const Title = styled.Text`
+export const Title = styled.Text<any>`
   ${({ theme }) => css`
     font-size: ${theme.FONT_SIZE.MD}px;
     color: ${theme.COLORS.WHITE};

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text } from 'react-native';
 
-import { StatusTrue, StatusFalse } from './styles';
-import { Columns } from 'phosphor-react-native';
+import { Container, ButtonYes, ButtonNo, StatusTrue, StatusFalse } from './styles';
 
 interface ToggleButtonProps {
   onSelectionChange: (selection: 'SIM' | 'NÃO') => void;
@@ -17,47 +16,21 @@ export function ToggleYesNoButton({ onSelectionChange }: ToggleButtonProps) {
   };
 
   return (
-    <View style={styles.container}>
-      <TouchableOpacity
-        style={[styles.button, selectedOption === 'SIM' ? styles.selectedSim : styles.unselected]}
+    <Container>
+      <ButtonYes
+        isSelected={selectedOption === 'SIM'}
         onPress={() => handleSelection('SIM')}
       >
         <StatusTrue />
         <Text>Sim</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={[styles.button, selectedOption === 'NÃO' ? styles.selectedNao : styles.unselected]}
+      </ButtonYes>
+      <ButtonNo
+        isSelected={selectedOption === 'NÃO'}
         onPress={() => handleSelection('NÃO')}
       >
         <StatusFalse />
         <Text>Não</Text>
-      </TouchableOpacity>
-    </View>
+      </ButtonNo>
+    </Container>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
-  },
-  button: {
-    flexDirection: 'row',
-    borderRadius: 5,
-    alignItems: 'center',
-    justifyContent: 'space-evenly',
-    width: '49%',
-    height: 56,
-  },
-  selectedSim: {
-    backgroundColor: 'lightgreen',
-  },
-  selectedNao: {
-    backgroundColor: 'lightcoral',
-  },
-  unselected: {
-    backgroundColor: 'lightgray',
-  },
-});
