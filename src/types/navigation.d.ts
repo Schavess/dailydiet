@@ -7,6 +7,11 @@ export declare global {
       feedback: {
         selection: 'SIM' | 'NÃO';
       };
+      mealinfo: {
+        hour: string;
+        name: string;
+        inDiet: boolean;
+      }
     }
   }
 }

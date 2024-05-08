@@ -55,7 +55,7 @@ export function MealCreatorPage() {
 
   return (
     <>
-      <DefaultHeader onPress={handleBackNavigation} />
+      <DefaultHeader title={'Nova refeição'} onPress={handleBackNavigation} />
       <Container>
         <Content>
           <FormView>
