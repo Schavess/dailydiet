@@ -1,9 +1,6 @@
 import { useState } from 'react';
-
 import { Alert } from 'react-native';
-
 import { Container, Content, FormView, FormDivideView, HalfWidthContainer, Text } from './styles';
-
 import { DefaultHeader } from '../../components/DefaultHeader';
 import { Input } from '../../components/Input';
 import { Button } from '../../components/Button';
@@ -11,6 +8,11 @@ import { ToggleYesNoButton } from '../../components/ToogleYesNo';
 import { DatePicker } from '../../components/DateTimePicker';
 
 import { useNavigation } from '@react-navigation/native';
+
+import { mealCreate } from '../../storage/meal/mealCreate'
+
+import { format } from "date-fns";
+import { ptBR } from "date-fns/locale";
 
 export function MealCreatorPage() {
 
@@ -26,13 +28,19 @@ export function MealCreatorPage() {
     navigation.navigate('home');
   }
 
-  function handleSubmit() {
+  const handleSubmit = async () => {
     if (name !== '') {
-      console.log(name);
-      console.log(description);
-      console.log(selection);
-      console.log(selectedTime);
-      console.log(selectedDate);
+      const formattedDate = format(selectedDate, 'dd/MM/yyyy', { locale: ptBR });
+      const formattedTime = format(selectedTime, 'HH:mm', { locale: ptBR });
+      const newMeal = {
+        name: name,
+        hour: formattedTime,
+        date: formattedDate,
+        description: description,
+        inDiet: selection === 'SIM',
+      };
+
+      await mealCreate(newMeal);
 
       navigation.navigate('feedback', { selection });
     } else {

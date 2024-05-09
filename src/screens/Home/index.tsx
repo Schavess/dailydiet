@@ -6,6 +6,10 @@ import { ButtonCreator } from '../../components/ButtonCreator';
 import { SectionList } from '../../components/SectionList';
 
 import { useNavigation } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
+import { mealGetAll } from 'src/storage/meal/mealGetAll';
+
+import { useIsFocused } from '@react-navigation/native';
 
 type Item = {
   id: string;
@@ -24,6 +28,10 @@ export function Home() {
 
   const navigation = useNavigation();
 
+  const isFocused = useIsFocused();
+
+
+
   function handleStatsInfoNavigation() {
     navigation.navigate('homestats');
   }
@@ -31,6 +39,27 @@ export function Home() {
   function handleMealCreatorNavigation() {
     navigation.navigate('mealcreator');
   }
+
+  const [mealList, setMealList] = useState<Section[]>([]);
+
+  async function fetchMeals() {
+    try {
+      const data = await mealGetAll();
+      setMealList(data);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    fetchMeals();
+  }, []);
+
+  useEffect(() => {
+    if (isFocused) {
+      fetchMeals();
+    }
+  }, [isFocused]);
 
   const sections: Section[] = [
     {
@@ -57,7 +86,7 @@ export function Home() {
       <LogoHeader />
       <StatsHeader statistic={'40,86%'} onPress={handleStatsInfoNavigation} />
       <ButtonCreator onPress={handleMealCreatorNavigation} />
-      <SectionList sections={sections} />
+      <SectionList sections={mealList} />
     </Container>
   );
 }

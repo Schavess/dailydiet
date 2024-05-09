@@ -15,9 +15,6 @@ export function StyledItem({ hour, date, description, name, inDiet, ...rest }: S
   const navigation = useNavigation();
 
   function handleClickItem() {
-    console.log(hour);
-    console.log(name);
-    console.log(inDiet);
     navigation.navigate('mealinfo', {
       hour,
       name,
