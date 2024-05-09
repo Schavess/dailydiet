@@ -4,6 +4,7 @@ export declare global {
       home: undefined;
       homestats: undefined;
       mealcreator: undefined;
+      mealeditor: undefined;
       feedback: {
         selection: 'SIM' | 'NÃO';
       };

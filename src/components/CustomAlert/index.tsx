@@ -1,5 +1,7 @@
 import React from 'react';
-import { Modal, View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Modal, View, Text, StyleSheet } from 'react-native';
+
+import { Button } from '../Button';
 
 interface CustomAlertProps {
   visible: boolean;
@@ -22,12 +24,8 @@ export function CustomAlert({ visible, title, message, onCancel, onConfirm }: Cu
           <Text style={styles.modalTitle}>{title}</Text>
           <Text style={styles.modalText}>{message}</Text>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.button} onPress={onCancel}>
-              <Text style={styles.buttonText}>Cancelar</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={onConfirm}>
-              <Text style={styles.buttonText}>Sim, excluir</Text>
-            </TouchableOpacity>
+            <Button title='Cancelar' onPress={onCancel} type='SECONDARY' />
+            <Button title='Sim, excluir' onPress={onConfirm} />
           </View>
         </View>
       </View>
@@ -70,17 +68,6 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    margin: 5,
   },
-  button: {
-    borderRadius: 20,
-    padding: 10,
-    margin: 10,
-    elevation: 2,
-    backgroundColor: '#2196F3'
-  },
-  buttonText: {
-    color: 'white',
-    fontWeight: 'bold',
-    textAlign: 'center'
-  }
 });

@@ -33,7 +33,7 @@ export function MealPageInfo({ route }: any) {
   }
 
   function handleSubmit() {
-    console.log('Editar refeição');
+    navigation.navigate('mealeditor');
   }
 
 
@@ -49,16 +49,6 @@ export function MealPageInfo({ route }: any) {
 
   function handleDelete() {
     setAlertVisible(true);
-
-
-    // Alert.alert(
-    //   '',
-    //   'Deseja realmente excluir o registro da refeição?',
-    //   [
-    //     { text: 'Cancelar', style: 'cancel' },
-    //     { text: 'Sim, excluir', onPress: () => { } }
-    //   ]
-    // );
   }
 
   const { name, date, description, hour, inDiet } = route.params ?? { name: '', hour: '', inDiet: false };

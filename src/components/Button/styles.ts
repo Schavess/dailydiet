@@ -25,6 +25,7 @@ export const Container = styled(TouchableOpacity)<Props>`
   border-radius: 6px;
   margin-top: 10px;
   padding: 5px;
+  margin: 5px;
   ${({ theme, type }) => css`
   border: 1px solid ${theme.COLORS.GRAY_2};
   `};
