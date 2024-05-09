@@ -6,6 +6,8 @@ import { StyledItem } from '../StyledItem';
 type Item = {
   id: string;
   hour: string;
+  date: string;
+  description: string;
   name: string;
   inDiet: boolean;
 };
@@ -27,7 +29,7 @@ export function SectionList({ sections }: Props) {
         <StyledSectionList
           sections={sections}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <StyledItem name={item.name} hour={item.hour} inDiet={item.inDiet} />}
+          renderItem={({ item }) => <StyledItem name={item.name} hour={item.hour} date={item.date} description={item.description} inDiet={item.inDiet} />}
           renderSectionHeader={({ section }) => <SectionHeader>{section.title}</SectionHeader>}
         />
 

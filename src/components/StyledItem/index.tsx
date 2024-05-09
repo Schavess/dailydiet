@@ -3,12 +3,14 @@ import { Container, Content, HourText, HourDivisor, StatusTrue, StatusFalse, Tex
 type StyledItemProps = {
   hour: string;
   name: string;
+  date: string;
+  description: string;
   inDiet: boolean;
 }
 
 import { useNavigation } from '@react-navigation/native';
 
-export function StyledItem({ hour, name, inDiet, ...rest }: StyledItemProps) {
+export function StyledItem({ hour, date, description, name, inDiet, ...rest }: StyledItemProps) {
 
   const navigation = useNavigation();
 
@@ -19,6 +21,8 @@ export function StyledItem({ hour, name, inDiet, ...rest }: StyledItemProps) {
     navigation.navigate('mealinfo', {
       hour,
       name,
+      date,
+      description,
       inDiet,
     });
   }

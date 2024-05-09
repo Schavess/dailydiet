@@ -10,6 +10,8 @@ export declare global {
       mealinfo: {
         hour: string;
         name: string;
+        date: string;
+        description: string;
         inDiet: boolean;
       }
     }

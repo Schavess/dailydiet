@@ -4,6 +4,8 @@ import { SectionList, Text, SectionListProps } from 'react-native';
 interface Item {
   id: string;
   hour: string;
+  date: string;
+  description: string;
   name: string;
   inDiet: boolean;
 }

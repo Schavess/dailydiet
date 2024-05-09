@@ -1,9 +1,15 @@
-import { Container, Content, View, Text, Title } from './styles'
+// import { Alert } from 'react-native';
+import { Container, Content, View, Text, BoldText, Title, InDietView, InDietText, StatusTrue, StatusFalse, ButtonView } from './styles';
 import { useNavigation } from '@react-navigation/native';
 
-import { DefaultHeader } from '../../components/DefaultHeader'
+import { DefaultHeader } from '../../components/DefaultHeader';
 
+import { CustomAlert } from '../../components/CustomAlert';
 import { useTheme } from "styled-components/native";
+import { Button } from '../../components/Button';
+
+import { PencilSimpleLine, Trash } from "phosphor-react-native";
+import { useState } from 'react';
 
 // interface MealEditProps {
 //   route: {
@@ -17,6 +23,7 @@ import { useTheme } from "styled-components/native";
 
 export function MealPageInfo({ route }: any) {
 
+  const [alertVisible, setAlertVisible] = useState(false);
   const { COLORS } = useTheme();
 
   const navigation = useNavigation();
@@ -25,19 +32,65 @@ export function MealPageInfo({ route }: any) {
     navigation.navigate('home');
   }
 
-  const { name, hour, inDiet } = route.params ?? { name: '', hour: '', inDiet: false };
+  function handleSubmit() {
+    console.log('Editar refeição');
+  }
+
+
+  const handleConfirm = () => {
+    // Handle the confirm action
+    setAlertVisible(false);
+  };
+
+  const handleCancel = () => {
+    // Handle the cancel action
+    setAlertVisible(false);
+  };
+
+  function handleDelete() {
+    setAlertVisible(true);
+
+
+    // Alert.alert(
+    //   '',
+    //   'Deseja realmente excluir o registro da refeição?',
+    //   [
+    //     { text: 'Cancelar', style: 'cancel' },
+    //     { text: 'Sim, excluir', onPress: () => { } }
+    //   ]
+    // );
+  }
+
+  const { name, date, description, hour, inDiet } = route.params ?? { name: '', hour: '', inDiet: false };
   return (
     <Container>
       <DefaultHeader title={'Refeição'} onPress={handleBackNavigation} style={{ backgroundColor: inDiet ? COLORS.GREEN_LIGHT : COLORS.RED_LIGHT }} />
       <Content>
         <View>
           <Title>{name}</Title>
-          <Text>Description: orem ipsum dolor sit amet, consectetur adipiscing elit. Donec malesuada nulla pellentesque mi pulvinar volutpat. Donec in ultrices urna. Suspendisse tincidunt consequat est non vehicula. Nulla faucibus nec elit a imperdiet. Nam tempor metus eu imperdiet dapibus. Sed ultrices nisi sed augue tincidunt finibus. Aenean nec risus mauris. Maecenas commodo justo eu libero finibus euismod.</Text>
-          <Text>Hora: {hour}</Text>
-          <Text>Data: ''</Text>
-          <Text>{inDiet ? 'Dentro da dieta' : 'Fora da dieta'}</Text>
+          <Text>{description}</Text>
+          <BoldText>Data e hora</BoldText>
+          <Text>{date} às {hour}</Text>
+          <InDietView>
+            {inDiet ? (<>
+              <StatusTrue />
+            </>) : <StatusFalse />}
+            <InDietText>{inDiet ? 'Dentro da dieta' : 'Fora da dieta'}</InDietText>
+          </InDietView>
         </View>
+        <ButtonView>
+          <Button title={'Editar refeição'} onPress={handleSubmit} icon={<PencilSimpleLine color='white' size={25} />} />
+          <Button type={'SECONDARY'} title={'Excluir refeição'} onPress={handleDelete} icon={<Trash color='black' size={25} />} />
+
+        </ButtonView>
       </Content>
+      <CustomAlert
+        visible={alertVisible}
+        title="Deseja realmente excluir o registro da refeição?"
+        message=""
+        onCancel={handleCancel}
+        onConfirm={handleConfirm}
+      />
     </Container>
   )
 }
