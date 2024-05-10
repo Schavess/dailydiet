@@ -29,7 +29,7 @@ export function SectionList({ sections }: Props) {
         <StyledSectionList
           sections={sections}
           keyExtractor={(item) => item.id}
-          renderItem={({ item }) => <StyledItem name={item.name} hour={item.hour} date={item.date} description={item.description} inDiet={item.inDiet} />}
+          renderItem={({ item }) => <StyledItem id={item.id} name={item.name} hour={item.hour} date={item.date} description={item.description} inDiet={item.inDiet} />}
           renderSectionHeader={({ section }) => <SectionHeader>{section.title}</SectionHeader>}
         />
 

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 // import { Alert } from 'react-native';
 import { Container, Content, View, Text, BoldText, Title, InDietView, InDietText, StatusTrue, StatusFalse, ButtonView } from './styles';
 import { useNavigation } from '@react-navigation/native';
@@ -9,8 +10,8 @@ import { useTheme } from "styled-components/native";
 import { Button } from '../../components/Button';
 
 import { PencilSimpleLine, Trash } from "phosphor-react-native";
-import { useState } from 'react';
 
+import { mealRemoveById } from '../../storage/meal/mealDelete'
 // interface MealEditProps {
 //   route: {
 //     params?: {
@@ -28,18 +29,25 @@ export function MealPageInfo({ route }: any) {
 
   const navigation = useNavigation();
 
+  const { id, name, date, description, hour, inDiet } = route.params ?? { name: '', hour: '', inDiet: false };
+
   function handleBackNavigation() {
     navigation.navigate('home');
   }
 
-  function handleSubmit() {
-    navigation.navigate('mealeditor');
+  function handleSubmit(id: string) {
+    navigation.navigate('mealeditor', {
+      id,
+      inDiet,
+    });
   }
 
 
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
     // Handle the confirm action
+    await mealRemoveById(id);
     setAlertVisible(false);
+    navigation.navigate('home');
   };
 
   const handleCancel = () => {
@@ -51,7 +59,8 @@ export function MealPageInfo({ route }: any) {
     setAlertVisible(true);
   }
 
-  const { name, date, description, hour, inDiet } = route.params ?? { name: '', hour: '', inDiet: false };
+
+
   return (
     <Container>
       <DefaultHeader title={'Refeição'} onPress={handleBackNavigation} style={{ backgroundColor: inDiet ? COLORS.GREEN_LIGHT : COLORS.RED_LIGHT }} />
@@ -69,7 +78,7 @@ export function MealPageInfo({ route }: any) {
           </InDietView>
         </View>
         <ButtonView>
-          <Button title={'Editar refeição'} onPress={handleSubmit} icon={<PencilSimpleLine color='white' size={25} />} />
+          <Button title={'Editar refeição'} onPress={() => handleSubmit(id)} icon={<PencilSimpleLine color='white' size={25} />} />
           <Button type={'SECONDARY'} title={'Excluir refeição'} onPress={handleDelete} icon={<Trash color='black' size={25} />} />
 
         </ButtonView>

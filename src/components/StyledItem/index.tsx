@@ -1,6 +1,7 @@
 import { Container, Content, HourText, HourDivisor, StatusTrue, StatusFalse, Text } from './styles';
 
 type StyledItemProps = {
+  id: string;
   hour: string;
   name: string;
   date: string;
@@ -10,12 +11,13 @@ type StyledItemProps = {
 
 import { useNavigation } from '@react-navigation/native';
 
-export function StyledItem({ hour, date, description, name, inDiet, ...rest }: StyledItemProps) {
+export function StyledItem({ id, hour, date, description, name, inDiet, ...rest }: StyledItemProps) {
 
   const navigation = useNavigation();
 
   function handleClickItem() {
     navigation.navigate('mealinfo', {
+      id,
       hour,
       name,
       date,

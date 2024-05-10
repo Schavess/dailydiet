@@ -4,11 +4,12 @@ import { Text } from 'react-native';
 import { Container, ButtonYes, ButtonNo, StatusTrue, StatusFalse } from './styles';
 
 interface ToggleButtonProps {
+  inDiet?: boolean;
   onSelectionChange: (selection: 'SIM' | 'NÃO') => void;
 }
 
-export function ToggleYesNoButton({ onSelectionChange }: ToggleButtonProps) {
-  const [selectedOption, setSelectedOption] = useState<'SIM' | 'NÃO'>('SIM');
+export function ToggleYesNoButton({ inDiet, onSelectionChange }: ToggleButtonProps) {
+  const [selectedOption, setSelectedOption] = useState<'SIM' | 'NÃO'>(inDiet ? 'SIM' : 'NÃO');
 
   const handleSelection = (option: 'SIM' | 'NÃO') => {
     setSelectedOption(option);
